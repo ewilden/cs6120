@@ -1,9 +1,12 @@
 [package]
-name = "solutions"
-version = "0.1.0"
 authors = ["Evan Wildenhain <m@evanwildenha.in>"]
 edition = "2018"
+name = "solutions-02"
+version = "0.1.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+bril-rs = {path = "../../bril/bril-rs", version = "0.1.0"}
+serde = {version = "1.0", features = ["derive"]}
+serde_json = "1.0"

@@ -1,0 +1,117 @@
+@main(v0: int, v1: int) {
+  call @ext_euclid v0 v1;
+  v2: int = const 0;
+}
+@quot(a: int, b: int): int {
+  v0: int = const 0;
+  q: int = id v0;
+.for.cond.1:
+.for.body.1:
+  v3: int = id a;
+  v4: int = const 0;
+  v5: bool = ge v3 v4;
+  br v5 .then.2 .else.2;
+.then.2:
+  v7: int = id a;
+  v8: int = id b;
+  v9: bool = lt v7 v8;
+  br v9 .then.6 .else.6;
+.then.6:
+  v10: int = id q;
+  ret v10;
+  jmp .endif.6;
+.else.6:
+.endif.6:
+  v12: int = id a;
+  v13: int = const 0;
+  v14: int = id b;
+  v15: int = sub v13 v14;
+  v16: bool = lt v12 v15;
+  br v16 .then.11 .else.11;
+.then.11:
+  v17: int = id q;
+  ret v17;
+  jmp .endif.11;
+.else.11:
+.endif.11:
+  jmp .endif.2;
+.else.2:
+.endif.2:
+  v18: int = id q;
+  v19: int = const 1;
+  v20: int = add v18 v19;
+  q: int = id v20;
+  v21: int = id a;
+  v22: int = id b;
+  v23: int = sub v21 v22;
+  a: int = id v23;
+  jmp .for.cond.1;
+.for.end.1:
+}
+@ext_euclid(a: int, b: int) {
+  v0: int = id a;
+  r0: int = id v0;
+  v1: int = id b;
+  r1: int = id v1;
+  v2: int = const 1;
+  s0: int = id v2;
+  v3: int = const 0;
+  s1: int = id v3;
+  v4: int = const 0;
+  t0: int = id v4;
+  v5: int = const 1;
+  t1: int = id v5;
+  v7: int = const 1;
+  r: int = id v7;
+.for.cond.6:
+  v8: int = id r;
+  v9: int = const 0;
+  v10: bool = gt v8 v9;
+  br v10 .for.body.6 .for.end.6;
+.for.body.6:
+  v11: int = id r0;
+  v12: int = id r1;
+  q: int = call @quot v11 v12;
+  q: int = id q;
+  v13: int = id r0;
+  v14: int = id q;
+  v15: int = id r1;
+  v16: int = mul v14 v15;
+  v17: int = sub v13 v16;
+  r: int = id v17;
+  v18: int = id s0;
+  v19: int = id q;
+  v20: int = id s1;
+  v21: int = mul v19 v20;
+  v22: int = sub v18 v21;
+  s: int = id v22;
+  v23: int = id t0;
+  v24: int = id q;
+  v25: int = id t1;
+  v26: int = mul v24 v25;
+  v27: int = sub v23 v26;
+  t: int = id v27;
+  v28: int = id r1;
+  r0: int = id v28;
+  v29: int = id s1;
+  s0: int = id v29;
+  v30: int = id t1;
+  t0: int = id v30;
+  v31: int = id r;
+  r1: int = id v31;
+  v32: int = id s;
+  s1: int = id v32;
+  v33: int = id t;
+  t1: int = id v33;
+  jmp .for.cond.6;
+.for.end.6:
+  v34: int = id r0;
+  print v34;
+  v35: int = const 0;
+  v36: int = id s0;
+  print v36;
+  v37: int = const 0;
+  v38: int = id t0;
+  print v38;
+  v39: int = const 0;
+}
